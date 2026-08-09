@@ -1,0 +1,246 @@
+/* ================================================================
+   Madhavan Jewellers — Main JavaScript (Vanilla JS)
+   Modules: Loader, Nav, Reveal, BackToTop, Forms, GalleryFilter,
+            Newsletter, Lightbox
+   ================================================================ */
+
+(function () {
+  'use strict';
+
+  /* ---- Loading Screen ---- */
+  const Loader = {
+    init() {
+      const el = document.getElementById('loader');
+      if (!el) return;
+      window.addEventListener('load', () => setTimeout(() => el.classList.add('hidden'), 500));
+      setTimeout(() => el.classList.add('hidden'), 3000);
+    }
+  };
+
+  /* ---- Sticky Navigation ---- */
+  const Nav = {
+    init() {
+      const header = document.querySelector('.site-header');
+      const toggle = document.querySelector('.nav-toggle');
+      const links = document.querySelector('.nav-links');
+      const overlay = document.querySelector('.nav-overlay');
+      if (!header) return;
+
+      const onScroll = () => {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      if (toggle && links) {
+        const close = () => {
+          links.classList.remove('open');
+          toggle.classList.remove('active');
+          if (overlay) overlay.classList.remove('show');
+          document.body.style.overflow = '';
+        };
+        toggle.addEventListener('click', () => {
+          const open = links.classList.toggle('open');
+          toggle.classList.toggle('active', open);
+          if (overlay) overlay.classList.toggle('show', open);
+          document.body.style.overflow = open ? 'hidden' : '';
+        });
+        if (overlay) overlay.addEventListener('click', close);
+        links.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+      }
+
+      // Active link
+      const path = window.location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.split('/').pop() === path) link.classList.add('active');
+      });
+    }
+  };
+
+  /* ---- Scroll Reveal ---- */
+  const Reveal = {
+    init() {
+      const items = document.querySelectorAll('.reveal');
+      if (!items.length) return;
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      items.forEach(el => obs.observe(el));
+    }
+  };
+
+  /* ---- Back to Top ---- */
+  const BackToTop = {
+    init() {
+      const btn = document.querySelector('.back-to-top');
+      if (!btn) return;
+      window.addEventListener('scroll', () => btn.classList.toggle('show', window.scrollY > 600), { passive: true });
+      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+  };
+
+  /* ---- Forms (EmailJS-ready) ---- */
+  const Forms = {
+    init() {
+      const form = document.querySelector('[data-form]');
+      if (!form) return;
+      const feedback = form.querySelector('.form-feedback');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const payload = Object.fromEntries(data.entries());
+
+        if (!payload.name && !payload.email) {
+          // Login form only has email + password
+          if (!payload.email) { this.show(feedback, 'Please enter your email.', 'error'); return; }
+        }
+        if (payload.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
+          this.show(feedback, 'Please enter a valid email address.', 'error');
+          return;
+        }
+
+        /*
+         * EmailJS integration point:
+         *   emailjs.send(SERVICE_ID, TEMPLATE_ID, payload)
+         *     .then(() => this.show(feedback, 'Message sent successfully.', 'success'))
+         *     .catch(() => this.show(feedback, 'Something went wrong.', 'error'));
+         */
+        const name = payload.name ? payload.name : 'Valued client';
+        this.show(feedback, 'Thank you, ' + name + '. Our concierge will respond within 24 hours.', 'success');
+        form.reset();
+      });
+    },
+    show(el, msg, type) {
+      if (!el) return;
+      el.textContent = msg;
+      el.className = 'form-feedback show ' + type;
+    }
+  };
+
+  /* ---- Gallery Filter ---- */
+  const GalleryFilter = {
+    init() {
+      const buttons = document.querySelectorAll('.filter-btn');
+      const items = document.querySelectorAll('[data-category]');
+      if (!buttons.length) return;
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.dataset.filter;
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          items.forEach(item => {
+            const show = filter === 'all' || item.dataset.category === filter;
+            item.style.display = show ? '' : 'none';
+          });
+        });
+      });
+    }
+  };
+
+  /* ---- Newsletter ---- */
+  const Newsletter = {
+    init() {
+      const form = document.querySelector('.newsletter');
+      if (!form) return;
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = form.querySelector('input');
+        if (input && input.value) {
+          input.value = '';
+          const msg = document.createElement('p');
+          msg.className = 'form-feedback show success';
+          msg.style.marginTop = '0.75rem';
+          msg.textContent = 'Welcome to Madhavan Jewellers. Check your inbox to confirm.';
+          form.parentNode.insertBefore(msg, form.nextSibling);
+        }
+      });
+    }
+  };
+
+  /* ---- Lightbox (supports images + videos) ---- */
+  const Lightbox = {
+    init() {
+      const triggers = document.querySelectorAll('[data-lightbox], [data-video]');
+      if (!triggers.length) return;
+      const overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      overlay.innerHTML = '<div class="lightbox-media"></div><button class="lightbox-close" aria-label="Close">&times;</button>';
+      document.body.appendChild(overlay);
+      const media = overlay.querySelector('.lightbox-media');
+      const closeBtn = overlay.querySelector('.lightbox-close');
+
+      const close = () => {
+        overlay.classList.remove('show');
+        document.body.style.overflow = '';
+        media.innerHTML = ''; // stop any playing video
+      };
+
+      triggers.forEach(t => {
+        t.addEventListener('click', (e) => {
+          e.preventDefault();
+          const videoSrc = t.dataset.video;
+          if (videoSrc) {
+            // Video item: plays the file/URL set in data-video
+            media.innerHTML = `<video src="${videoSrc}" controls autoplay playsinline></video>`;
+          } else {
+            const imgSrc = t.dataset.lightbox;
+            const alt = t.querySelector('img')?.alt || '';
+            media.innerHTML = `<img src="${imgSrc}" alt="${alt}" />`;
+          }
+          overlay.classList.add('show');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      closeBtn.addEventListener('click', close);
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    }
+  };
+
+  /* ---- Hero Background Carousel (added) ---- */
+  const HeroCarousel = {
+    init() {
+      document.querySelectorAll('.hero-bg').forEach((bg) => {
+        const imgs = bg.querySelectorAll('img');
+        if (imgs.length < 2) return;
+        let current = 0;
+        imgs.forEach((img, idx) => img.classList.toggle('active', idx === 0));
+        setInterval(() => {
+          imgs[current].classList.remove('active');
+          current = (current + 1) % imgs.length;
+          imgs[current].classList.add('active');
+        }, 5000);
+      });
+    }
+  };
+
+  /* ---- Init ---- */
+  function init() {
+    Loader.init();
+    Nav.init();
+    Reveal.init();
+    BackToTop.init();
+    Forms.init();
+    GalleryFilter.init();
+    Newsletter.init();
+    Lightbox.init();
+    HeroCarousel.init();
+  }
+
+  if (window.__partialsReady) {
+    init();
+  } else {
+    document.addEventListener('partials-loaded', init, { once: true });
+  }
+})();
