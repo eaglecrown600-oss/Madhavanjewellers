@@ -112,9 +112,9 @@
             <h4>Reach Us</h4>
             <ul>
               <li><a href="${prefix}contact.html">Contact</a></li>
-              <li><a href="tel:+914412345678">+91 44 1234 5678</a></li>
-              <li><a href="mailto:care@madhavanjewellers.com">care@madhavanjewellers.com</a></li>
-              <li><span>T. Nagar, Chennai, Tamil Nadu</span></li>
+              <li><a href="tel:+917598824317">+91 75988 24317</a></li>
+              <li><a href="mailto: madhavanjewels@gmail.com">madhavanjewels@gmail.com</a></li>
+              <li><span>West maadi street, Madurai, Tamil Nadu</span></li>
             </ul>
             <div class="footer-social">
               <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
