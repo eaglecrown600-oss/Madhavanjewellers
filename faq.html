@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="public/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ | Madhavan Jewellers Pvt Ltd</title>
+  <meta name="description" content="Frequently asked questions about Madhavan Jewellers — gold purity, making charges, exchange policy, custom orders, and more." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FAQ | Madhavan Jewellers Pvt Ltd" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <style>
+    /* ---- FAQ Accordion (page-specific, added for this page only) ---- */
+    .faq-list { max-width: 820px; margin: 0 auto; }
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; margin-bottom: var(--s2); overflow: hidden; background: var(--white); }
+    .faq-question {
+      width: 100%; display: flex; align-items: center; justify-content: space-between; gap: var(--s2);
+      padding: 1.2rem 1.5rem; background: none; border: none; cursor: pointer; text-align: left;
+      font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--charcoal-2);
+    }
+    .faq-item.open .faq-question { color: var(--gold-700); }
+    .faq-icon { flex-shrink: 0; width: 22px; height: 22px; color: var(--gold-500); transition: transform 0.3s var(--ease); }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s var(--ease); }
+    .faq-answer p { padding: 0 1.5rem 1.3rem; color: var(--charcoal-4); line-height: 1.7; }
+    .faq-cta { text-align: center; margin-top: var(--s5); }
+  </style>
+</head>
+<body>
+  <div id="loader"><div class="loader-inner"><div class="loader-logo-wrap"><img src="public/logo.png" alt="Madhavan Jewellers" /></div><div class="loader-brand">MADHAVAN</div><div class="loader-sub">Jewellers Pvt Ltd</div><div class="loader-bar"><span></span></div></div></div>
+  <div id="header-slot"></div>
+
+  <main id="main">
+    <section class="page-banner">
+      <!-- HERO IMAGE — change the src below to swap this section's background photo -->
+      <div class="hero-bg"><img src="images/faq/hero-1.jpg" alt="Gold jewellery close-up" /><img src="images/faq/hero-2.jpg" alt="Gold jewellery close-up" loading="lazy" /><img src="images/faq/hero-3.jpg" alt="Gold jewellery close-up" loading="lazy" /></div>
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <p class="eyebrow">Have Questions?</p>
+        <h1>Frequently Asked <span class="gold">Questions</span></h1>
+        <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span>FAQ</nav>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="faq-list">
+          <div class="faq-item reveal open">
+            <button class="faq-question" type="button" aria-expanded="true">
+              What purity of gold do you use?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer"><p>All our gold jewellery is crafted in certified 22K (91.6%) gold, hallmarked by the Bureau of Indian Standards (BIS). We also offer 18K options for lightweight, everyday-wear pieces on request.</p></div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Do you charge making charges separately?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer"><p>Yes, making charges are itemised separately from the metal value on every invoice, so you always know exactly what you're paying for. Rates vary by design complexity and are shared upfront during consultation.</p></div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Can I exchange old gold jewellery?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer"><p>Absolutely. We accept old gold jewellery for exchange at the day's market rate after purity testing, which you're welcome to observe in-store. The value is adjusted against your new purchase.</p></div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Do you take custom / bespoke orders?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer"><p>Yes, our in-house artisans can craft bespoke pieces from a reference image, a family heirloom design, or a concept you describe. Custom orders typically take 2–4 weeks depending on complexity.</p></div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question" type="button" aria-expanded="false">
+              What is your return / buyback policy?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer"><p>Unworn jewellery with original tags and invoice can be returned within 7 days for a full refund or exchange. We also offer a lifetime buyback on gold jewellery purchased from us, at prevailing market rates.</p></div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Do you offer certification for diamonds and gemstones?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer"><p>Every diamond and precious gemstone we sell comes with independent certification (IGI/GIA where applicable), along with a detailed quality report covering cut, clarity, colour, and carat weight.</p></div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question" type="button" aria-expanded="false">
+              How do I book a consultation?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-answer"><p>You can book a private consultation through our Contact page, by calling our showroom directly, or by walking in during business hours. We recommend booking ahead for bridal and bespoke consultations.</p></div>
+          </div>
+        </div>
+
+        <div class="faq-cta reveal">
+          <p class="lead" style="margin-bottom:1.2rem">Still have a question?</p>
+          <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-slot"></div>
+  <script src="js/partials.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    /* ---- FAQ accordion behaviour (page-specific, added for this page only) ---- */
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.faq-item').forEach(function (item) {
+        var btn = item.querySelector('.faq-question');
+        var answer = item.querySelector('.faq-answer');
+        function setState(open) {
+          item.classList.toggle('open', open);
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          answer.style.maxHeight = open ? answer.scrollHeight + 'px' : '0px';
+        }
+        setState(item.classList.contains('open'));
+        btn.addEventListener('click', function () {
+          setState(!item.classList.contains('open'));
+        });
+        window.addEventListener('resize', function () {
+          if (item.classList.contains('open')) answer.style.maxHeight = answer.scrollHeight + 'px';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

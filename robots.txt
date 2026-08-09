@@ -1,0 +1,7 @@
+# robots.txt - Aurélia Luxury Jewellery
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /login.html
+
+Sitemap: https://www.aurelia-jewellery.com/sitemap.xml
