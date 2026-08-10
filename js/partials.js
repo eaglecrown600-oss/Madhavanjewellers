@@ -120,6 +120,7 @@
               <a href="https://www.instagram.com/madhavanjewellers?igsh=ZmRsNjF3azduazEw" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
               <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
               <a href="https://youtube.com/@madhavanjewellers?si=WWEBof061MuepnfS" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.5-.45-5.18a2.5 2.5 0 0 0-1.77-1.77C19.1 4.6 12 4.6 12 4.6s-7.1 0-8.78.45a2.5 2.5 0 0 0-1.77 1.77C1 8.5 1 12 1 12s0 3.5.45 5.18a2.5 2.5 0 0 0 1.77 1.77c1.68.45 8.78.45 8.78.45s7.1 0 8.78-.45a2.5 2.5 0 0 0 1.77-1.77C23 15.5 23 12 23 12zM9.75 15.5v-7l6 3.5z"/></svg></a>
+            <a href="https://play.google.com/store/apps/details?id=com.madhavanjewellers.gss.twa&pcampaignid=web_share"target="_blank"rel="noopener"aria-label="Download App"><svg viewBox="0 0 24 24" fill="currentColor"><!-- Play Store SVG path --></svg></a>       
             </div>
           </div>
         </div>
