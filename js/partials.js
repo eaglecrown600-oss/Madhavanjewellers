@@ -112,7 +112,7 @@
             <h4>Reach Us</h4>
             <ul>
               <li><a href="${prefix}contact.html">Contact</a></li>
-              <li><a href="tel:+917598824317">++91 7598824317</a></li>
+              <li><a href="tel:+917598824317">+91 7598824317</a></li>
               <li><a href="mailto:madhavanjewels@gmail.com">madhavanjewels@gmail.com</a></li>
               <li><span>West, Madurai, Tamil Nadu</span></li>
             </ul>
