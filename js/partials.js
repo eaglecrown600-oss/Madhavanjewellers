@@ -82,7 +82,7 @@
                 <div class="fb-sub">Jewellers Pvt Ltd</div>
               </div>
             </div>
-            <p>Crafting timeless temple-inspired jewellery since 1948. Heritage artistry meets modern luxury, in 22k gold, sterling silver, and certified diamonds.</p>
+            <p>Crafting timeless temple-inspired jewellery since 1945. Heritage artistry meets modern luxury, in 22k gold, sterling silver, and certified diamonds.</p>
             <form class="newsletter" aria-label="Newsletter signup">
               <input type="email" placeholder="Your email address" aria-label="Email address" required />
               <button type="submit">Subscribe</button>
