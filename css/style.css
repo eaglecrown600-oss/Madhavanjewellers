@@ -84,7 +84,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   transform: translate(-50%, -50%);
   width: min(34vw, 480px);
   height: auto;
-  opacity: 0.04;
+  opacity: 0.03;
   z-index: 50;
   pointer-events: none;
   user-select: none;
